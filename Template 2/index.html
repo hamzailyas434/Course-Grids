@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        background-color: #f5f5f5;
+      }
+      body {
+        color: #999999;
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0;
+        margin: 0;
+        padding: 1rem;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -moz-font-feature-settings: "liga" on;
+      }
+      img {
+        height: auto;
+        max-width: 100%;
+        vertical-align: middle;
+      }
+
+      .cards {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+      }
+      .cards__item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 1rem;
+        transition: all 0.4s;
+        overflow: hidden;
+      }
+      .cards__item:hover {
+        transform: translateY(-1.2rem);
+      }
+      @media (min-width: 40rem) {
+        .cards__item {
+          width: 50%;
+        }
+      }
+      @media (min-width: 56rem) {
+        .cards__item {
+          width: 33.3333%;
+        }
+      }
+      .card {
+        background-color: white;
+        border: 1px solid #bfbfbf;
+        border-radius: 0.25rem;
+        /* box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.38); */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .card:hover .card__image {
+        -webkit-filter: contrast(100%);
+        filter: contrast(100%);
+      }
+      .card__content {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .card__image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-top-left-radius: 0.25rem;
+        border-top-right-radius: 0.25rem;
+        -webkit-filter: contrast(70%);
+        filter: contrast(70%);
+        overflow: hidden;
+        position: relative;
+        -webkit-transition: -webkit-filter 0.5s
+          cubic-bezier(0.43, 0.41, 0.22, 0.91);
+        transition: -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+        transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+        transition: filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91),
+          -webkit-filter 0.5s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+      }
+      .card__image::before {
+        content: "";
+        display: block;
+        padding-top: 56.25%;
+      }
+      @media (min-width: 40rem) {
+        .card__image::before {
+          padding-top: 66.6%;
+        }
+      }
+      .card__image--fence1 {
+        /* background-image: url(v-4.jpg); */
+        background-image: url(https://images.unsplash.com/photo-1618422168181-177d9d0a1fca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+      }
+      .card__image--fence2 {
+        background-image: url(https://images.unsplash.com/photo-1618422168181-177d9d0a1fca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);
+      }
+      .card__title {
+        color: #696969;
+        font-size: 1.25rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .card__text {
+        -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        margin-bottom: 1.25rem;
+      }
+      /* Progress bar */
+      #progress {
+        display: flex;
+        background: #333;
+        border-radius: 13px;
+        height: 12px;
+        padding: 3px;
+      }
+
+      #progress:after {
+        content: "";
+        display: block;
+        background: #f14d5d;
+        width: 50%;
+        height: 100%;
+        border-radius: 9px;
+      }
+      /* Coure Free Paid Tag */
+      .course_category {
+        margin-bottom: 1.2rem;
+        display: flex;
+        gap: 0.4rem;
+      }
+      .course {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        /* text-transform: uppercase; */
+        color: #333;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      .course_tag {
+        background-color: #f14d5d;
+      }
+      .course_roll {
+        background-color: #333333;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="cards">
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--fence1"></div>
+          <div class="card__content">
+            <div class="course_category">
+              <span class="course course_roll">Enrolled</span>
+              <span class="course course_tag">$9.99</span>
+            </div>
+            <div class="card__title">
+              The Complete JavaScript Course 2021: From Zero to Expert!
+            </div>
+            <p class="card__text">
+              The modern JavaScript course for everyone! Master JavaScript with
+              projects, challenges and theory. Many courses in one!
+            </p>
+            <div id="progress"></div>
+          </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--fence2"></div>
+          <div class="card__content">
+            <div class="course_category">
+              <span class="course course_tag">Free</span>
+            </div>
+            <div class="card__title">
+              The Complete JavaScript Course 2021: From Zero to Expert!
+            </div>
+            <p class="card__text">
+              The modern JavaScript course for everyone! Master JavaScript with
+              projects, challenges and theory. Many courses in one!
+            </p>
+            <div id="progress"></div>
+          </div>
+        </div>
+      </li>
+      <li class="cards__item">
+        <div class="card">
+          <div class="card__image card__image--fence2"></div>
+          <div class="card__content">
+            <div class="course_category">
+              <span class="course course_tag">Free</span>
+            </div>
+            <div class="card__title">
+              The Complete JavaScript Course 2021: From Zero to Expert!
+            </div>
+            <p class="card__text">
+              The modern JavaScript course for everyone! Master JavaScript with
+              projects, challenges and theory. Many courses in one!
+            </p>
+            <div id="progress"></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </body>
+</html>
