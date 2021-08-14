@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card,
+      .card-box {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .card-box {
+        flex: 3 1 30ch;
+        /* height: calc(282px + 5vw); */
+        height: calc(160px + 5vw);
+        overflow: hidden;
+      }
+      .card-box img {
+        max-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: cover;
+        object-position: 50% 50%;
+        transition: all 2s ease;
+      }
+      .card-box img:hover {
+        transform: scale(1.2);
+      }
+      .card {
+        border: 2px solid #f2f2f2;
+        border-radius: 8px;
+        overflow: hidden;
+        /* box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px; */
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      }
+      .card-content {
+        padding: 16px 32px;
+        flex: 4 1 40ch;
+      }
+
+      .card-price {
+        display: inline-block;
+        margin: 8px;
+        font-size: 0.875em;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--green);
+      }
+      .card-title {
+        margin: 0;
+        font-family: "Roboto Slab", Helvetica, Arial, sans-serif;
+        font-size: 1.2rem;
+      }
+      .card-title a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .card-metadata {
+        margin: 0;
+      }
+      .card-save {
+        display: flex;
+        align-items: center;
+        padding: 6px 14px 6px 12px;
+        border-radius: 4px;
+        border: 2px solid currentColor;
+        color: var(--primary);
+        background: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .card-save svg {
+        margin-right: 6px;
+      }
+      /* Body Layout */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        color: 454545;
+        line-height: 1.55;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        font-family: "Roboto", Helvetica, Arial, sans-serif;
+      }
+      .small {
+        width: clamp(320px, 35%, 420px);
+
+        border-radius: 12px;
+        padding: 24px;
+        margin: 10px;
+        transition: all 0.4s;
+        overflow: hidden;
+      }
+      .small:hover {
+        transform: translateY(-1.2rem);
+      }
+      /* Progress bar */
+      #progress {
+        display: flex;
+        background: #333;
+        border-radius: 13px;
+        height: 12px;
+        padding: 3px;
+      }
+
+      #progress:after {
+        content: "";
+        display: block;
+        background: #e05d26;
+        width: 50%;
+        height: 100%;
+        border-radius: 9px;
+      }
+      /* Course Tags Free and PRice */
+      .course_category {
+        margin-bottom: 1.2rem;
+        display: flex;
+        gap: 0.4rem;
+      }
+      .course {
+        display: inline-block;
+        padding: 0.6rem 0.9rem;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        color: #333;
+        border-radius: 5px;
+        font-weight: 600;
+      }
+
+      .course_tag {
+        background-color: #e05d26;
+        color: #fff;
+      }
+      .course_roll {
+        background-color: #000;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="small">
+      <article class="card">
+        <div class="card-box">
+          <img
+            src="https://images.unsplash.com/photo-1529465230221-a0d10e46fcbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            width="1500"
+            height="1368"
+            alt=""
+          />
+        </div>
+        <div class="card-content">
+          <div class="course_category">
+            <span class="course course_roll">Free</span>
+            <span class="course course_tag">$9.99</span>
+          </div>
+
+          <h1 class="card-title"><a href="#">COMPLETE JAVASCRIPT 2021</a></h1>
+
+          <p class="card-desc">
+            The modern JavaScript course for everyone! Master JavaScript with
+            projects, challenges and theory. Many courses!
+          </p>
+          <div id="progress"></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="small">
+      <article class="card">
+        <div class="card-box">
+          <img
+            src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            width="1500"
+            height="1368"
+            alt=""
+          />
+        </div>
+        <div class="card-content">
+          <div class="course_category">
+            <span class="course course_roll">Enrolled</span>
+            <span class="course course_tag">$9.99</span>
+          </div>
+
+          <h1 class="card-title"><a href="#">COMPLETE JAVASCRIPT 2021</a></h1>
+
+          <p class="card-desc">
+            The modern JavaScript course for everyone! Master JavaScript with
+            projects, challenges and theory. Many courses!
+          </p>
+          <div id="progress"></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="small">
+      <article class="card">
+        <div class="card-box">
+          <img
+            src="https://images.unsplash.com/photo-1569012871812-f38ee64cd54c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
+            width="1500"
+            height="1368"
+            alt=""
+          />
+        </div>
+        <div class="card-content">
+          <div class="course_category">
+            <span class="course course_roll">Enrolled</span>
+            <span class="course course_tag">$9.99</span>
+          </div>
+
+          <h1 class="card-title"><a href="#">COMPLETE JAVASCRIPT 2021</a></h1>
+
+          <p class="card-desc">
+            The modern JavaScript course for everyone! Master JavaScript with
+            projects, challenges and theory. Many courses!
+          </p>
+          <div id="progress"></div>
+        </div>
+      </article>
+    </div>
+  </body>
+</html>
